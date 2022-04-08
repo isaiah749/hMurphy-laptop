@@ -15,7 +15,7 @@ const Navbar = () => {
                 <span className='mr-1 pt-2'>
                     <Image src={logo} alt='logo' height={40} width={40} />
                 </span>
-                <div className="text-white text-2xl name-font ml-2 font-semibold">Heather M. Murphy</div>
+                <div className="text-white text-2xl lg:text-4xl name-font ml-2 font-semibold">Heather M. Murphy</div>
             </div>
       
             <div onClick={()=>setOpen(!open)} className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>

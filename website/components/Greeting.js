@@ -10,7 +10,7 @@ const Greeting = () => {
             
             <div className="absolute top-[40%] w-full text-center">
                 <p className="text-2xl name-font sm:text-3xl font-bold">Hello I'm,</p>
-                <h1 className="text-yellow-400 font-bold text-4xl">Heather Murphy</h1>
+                <h1 className="text-yellow-400 font-bold italic font-[Poppins] text-[2.75rem]">Heather Murphy</h1>
              </div>
 
 

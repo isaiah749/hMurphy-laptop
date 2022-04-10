@@ -31,3 +31,22 @@ img {
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+@media (min-width: 772px) {
+    .hide-menu {
+        display: none;
+    }
+
+    .desktop-nav {
+        display: flex;
+        align-items: center;
+        padding-bottom: 0;
+        padding-top: 0;
+        position: static;
+        z-index: auto;
+        width: auto;
+        padding-left: 0;
+    }
+    
+}
+

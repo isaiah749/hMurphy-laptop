@@ -1,20 +1,86 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import vertTwo from '../styles/Images/vert2.jpg'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const ServiceTwo = () => {
+    const {ref: textRef, inView: textVisible} = useInView()
+    const {ref: titleRef, inView: titleVisible} = useInView();
+
+    const titleAnimation = useAnimation();
+    const animation = useAnimation();
+    const imageAnimation = useAnimation();
+
+    useEffect(() => {
+        if (titleVisible) {
+            titleAnimation.start({
+                scale: 1,
+                opacity: 1,
+                transition: {
+                    delay: .2,
+                }
+            })
+        }
+        if (!titleVisible) {
+            titleAnimation.start({
+                scale: 1,
+                opacity: 0,
+            })
+        }
+    })
+
+    useEffect(() => {
+        if (textVisible) {
+            imageAnimation.start({
+                x: 0,
+                transition: {
+                    type: 'spring',
+                    duration: .9,
+                    bounce: 0.3
+                }
+            })
+        }
+        if (!textVisible) {
+            imageAnimation.start({
+                x: '100vw'
+            })
+        }
+    })
+
+    useEffect(() => {
+        if (textVisible) {
+            animation.start({
+                x: 0,
+                transition: {
+                    type: 'spring',
+                    duration: .9,
+                    bounce: 0.3
+                }
+            })
+        }
+        if (!textVisible) {
+            animation.start({
+                x: '100vw'
+            })
+        }
+        console.log('use effect hook, inview = ', textVisible)
+    }, [textVisible])
     return (
         <div className='h-[100vh] md:h-[70vh] px-2 relative pt-[3rem] w-full'>
             
             <div className="flex items-center pb-2 md:pb-0 md:my-8 lg:my-5 justify-center">
-                <div className="border-2 border-yellow-400 h-[.25px] w-14 md:w-24 mr-5"></div>
-                <h1 className="text-center text-3xl text-white sm:text-5xl title-font font-bold ">Rewrite Your Story</h1>
-                <div className="border-2 border-yellow-400 h-[.25px] w-14 md:w-24 ml-5"></div>
+                <div ref={titleRef} className="border-2 border-yellow-400 h-[.25px] w-14 md:w-24 mr-5"></div>
+                <motion.div initial='hidden' animate={titleAnimation}>
+                    <h1 className="text-center text-3xl text-white sm:text-5xl title-font font-bold ">Rewrite Your Story</h1>
+                
+                </motion.div>
+                <div ref={textRef} className="border-2 border-yellow-400 h-[.25px] w-14 md:w-24 ml-5"></div>
             </div>
 
-            <div className="md:flex md:items-center md:justify-center w-full md:px-5 md:py-5 px-2 py-2 ">
+            <motion.div animate={animation} className="md:flex md:items-center md:justify-center w-full md:px-5 md:py-5 px-2 py-2 ">
 
-
+                
                 <div className="h-[400px] md:h-[500px] xl:h-[600px] w-full 2xl:h-[700px] relative ">
                     <Image src={vertTwo} layout='fill' objectFit='contain' />
                 </div>
@@ -33,7 +99,7 @@ const ServiceTwo = () => {
                     </div>
 
                 </div>
-            </div>
+            </motion.div>
 
             
     

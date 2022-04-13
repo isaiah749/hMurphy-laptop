@@ -8,31 +8,34 @@ import ServiceTwo from '../components/ServiceTwo'
 
 export default function Home() {
   return (
-    <div className='h-[100vh] w-full max-w-screen '>
+    <div className='h-[100vh] w-full '>
       
       <Head>
         <title>HMMurphy - Home</title>
       </Head>
       
+
       <header className="">
         <Navbar />
       </header>
 
-      <section className=' '>
+      <section className=''>
         <Greeting />
       </section>
 
-      <section className="">
+      <section className="pb-[16rem]">
         <ServiceOne />
       </section>
 
-      <section className="">
+      <section className="pb-[16rem] bg-black ">
         <ServiceTwo />
       </section>
 
-      <section className="">
+      <section className="pb-[16rem]">
         <Journey />
       </section>
+
+
 
 
 
